@@ -14,7 +14,7 @@ An important datatype that you will use in this assignment is a queue. A queue i
 
 The [standard Java Queue](https://docs.oracle.com/javase/tutorial/collections/interfaces/queue.html) is an interface. This means that one can define an object reference to be of type `Queue` but one has to create an object of this type using a class or type that *implements* the `Queue` interface.
 
-For example, we could define `integerQ` like this
+For example, we could define `integerQueue` like this
 
 ```java
 Queue<Integer> integerQueue;
@@ -34,7 +34,7 @@ Queue<Integer> integerQueue = new LinkedList<Integer>( );
 
 After this step, with `integerQueue`, you should only use methods that are part of the `Queue` interface. `add( )`, `remove( )` and `peek( )` are usually sufficient.
 
-*We will discuss in greater details why interfaces exist soon enough, but you will need this basic understanding of Java usage to complete this assignment.*
+*We will discuss in greater detail why interfaces exist soon enough, but you will need this basic understanding of Java usage to complete this assignment.*
 
 
 ### The Essence of this Machine Problem: Simulating a Guitar
@@ -140,9 +140,9 @@ You are given debugging and testing programs for `Guitar221`. (See [MP1 Debug](h
 
 ### Submitting Your Work
 
-You must create a new branch to your assigned CPEN 221 repository named `mp1`. This must be a branch from the empty `master` branch of the repository, and all your code for this machine problem must be submitted to that branch.
+Submit your work by pushing your work to the Github repository that was created for you for this machine problem.
 
-In terms of correctness, your class must provide all of the functionality described above and must satisfy all of the constraints mentioned in this writeup.  In terms of style, we will be grading on your use of comments, good variable names, consistent indentation, minimal fields and good coding style to implement these operations.
+In terms of correctness, your class must provide all of the functionality described above and must satisfy all of the constraints mentioned in this writeup.  In terms of style, we will be grading on aspects such as your use of comments, good variable names, consistent indentation, minimal fields and good coding style to implement these operations.
 
 ### Credits
 * This machine problem is a variation of an assignment posed at Princeton University.
