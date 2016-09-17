@@ -2,11 +2,40 @@ Machine Problem 1: My Guitar Hero
 ===
 ... or get familiar with `Queue`s and produce some noise.
 
-> This machine problem is due October 2 by 6:00 p.m. and is worth 3% of your course grade. _This is an individual assignment._
+> This machine problem is due September 23 by 11:59 p.m. and is worth 3% of your course grade. _This is an individual assignment._
 
 This programming assignment will give you practice with **queues, interfaces, objects, and arrays of objects.**  You are going to implement two classes that allow us to simulate a guitar.  
 
 We will be using two utility classes known as `StdAudio` and `StdDraw`.  You don’t have to understand the details of these utility classes, but [documentation](http://introcs.cs.princeton.edu/java/stdlib/) is available if you are interested.
+
+### Short Introduction: `Queue`
+
+An important datatype that you will use in this assignment is a queue. A queue is collection that allows one to insert and remove items. Items are removed in a "first-in first-out" order.
+
+The [standard Java Queue](https://docs.oracle.com/javase/tutorial/collections/interfaces/queue.html) is an interface. This means that one can define an object reference to be of type `Queue` but one has to create an object of this type using a class or type that *implements* the `Queue` interface.
+
+For example, we could define `integerQ` like this
+
+```java
+Queue<Integer> integerQueue;
+```
+
+... but we cannot create a queue using
+
+```java
+integerQueue = new Queue<Integer>( );
+```
+
+`LinkedList` is one of many implementations of the `Queue` interface. So we can do the following to create a queue:
+
+```java
+Queue<Integer> integerQueue = new LinkedList<Integer>( );
+```
+
+After this step, with `integerQueue`, you should only use methods that are part of the `Queue` interface. `add( )`, `remove( )` and `peek( )` are usually sufficient.
+
+*We will discuss in greater details why interfaces exist soon enough, but you will need this basic understanding of Java usage to complete this assignment.*
+
 
 ### The Essence of this Machine Problem: Simulating a Guitar
 
@@ -32,7 +61,7 @@ The two primary components that make the Karplus-Strong algorithm work are the r
 
 #### Part 1: The `GuitarString` Class
 
-In the first part of the assignment, you will implement a class called `GuitarString` that models a vibrating guitar string of a given frequency.  The `GuitarString` object will need to keep track of a ring buffer.  You are to implement the ring buffer as a queue using the `Queue<E>` interface and the `LinkedList<E>` implementation.  You are not allowed to use other data structures to solve this problem.  You must solve it with a queue. 
+In the first part of the assignment, you will implement a class called `GuitarString` that models a vibrating guitar string of a given frequency.  The `GuitarString` object will need to keep track of a ring buffer.  You are to implement the ring buffer as a queue using the `Queue<E>` interface and the `LinkedList<E>` implementation.  You are not allowed to use other data structures to solve this problem.  You must solve it with a queue.
 
 You can choose to implement a separate `RingBuffer` class using Java’s native `LinkedList<E>` implementation of the `Queue<E>` interface and use an object of the `RingBuffer` class in your implementation of `GuitarString`.
 
@@ -60,7 +89,7 @@ You are being provided with a sample class called `GuitarLite.java` that impleme
 
 In this second part of the assignment, your task is to make a variation of `GuitarLite` known as `Guitar221`.  It will model a guitar with 37 different strings.  Because it has so many strings, we will want to keep track of them in a data structure.  Your `Guitar221` objects should each keep track of an array of 37 `GuitarString` objects.
 
-The `Guitar221` class has a total of 37 notes on the chromatic scale from 110Hz to 880Hz.  We will use the following string to map keys typed by the user to positions in your array of strings.  The i<sup>th</sup> character of this string should correspond to the i<sup>th</sup> character of your array: 
+The `Guitar221` class has a total of 37 notes on the chromatic scale from 110Hz to 880Hz.  We will use the following string to map keys typed by the user to positions in your array of strings.  The i<sup>th</sup> character of this string should correspond to the i<sup>th</sup> character of your array:
 
 `”q2we4r5ty7u8i9op-[=zxdcfvgbnjmk,.;/' “`
 
@@ -78,19 +107,19 @@ public interface Guitar {
     // plays the given note if possible by plucking an appropriate string;
     // the pitch uses a chromatic scale where Concert-A has a pitch of 12
     public void playNote(int pitch);
- 
+
     // returns whether there is a string that corresponds to this character
     public boolean hasString(char key);
- 
+
     // plucks the string for this character
     public void pluck(char key);
- 
+
     // returns the current sound (sum of all strings)
     public double sample();
- 
+
     // advances the simulation by having each string tic forward
     public void tic();
- 
+
     // optional method that returns the number of times tic has been called;
     // returns -1 if not implemented
     public int time();
@@ -116,5 +145,5 @@ You must create a new branch to your assigned CPEN 221 repository named `mp1`. T
 In terms of correctness, your class must provide all of the functionality described above and must satisfy all of the constraints mentioned in this writeup.  In terms of style, we will be grading on your use of comments, good variable names, consistent indentation, minimal fields and good coding style to implement these operations.
 
 ### Credits
-* This machine problem is a variation of an assignment posed at Princeton University. 
+* This machine problem is a variation of an assignment posed at Princeton University.
 * Credits to [Robert Sedgewick](http://www.cs.princeton.edu/~rs/) and [Kevin Wayne](http://www.cs.princeton.edu/~wayne/contact/).
