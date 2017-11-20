@@ -45,13 +45,13 @@ When a guitar string is plucked, the string vibrates and creates sound. The leng
 
 The excitation of the string can contain energy at any frequency. We simulate the excitation by filling the ring buffer with white noise: set each of the N sample displacements to a random real number between -1/2 and +1/2.
 
-![Vibrations](https://www.dropbox.com/s/zkw2bht3xgvrnoh/image002.jpg?dl=1)
+![Vibrations](https://www.dropbox.com/s/zkw2bht3xgvrnoh/image002.jpg?raw=1)
 
 #### The Resulting Vibrations
 
 After the string is plucked, the string vibrates. The pluck causes a displacement which spreads wave-like over time. The Karplus-Strong algorithm simulates this vibration by maintaining a ring buffer of the N samples: the algorithm repeatedly deletes the first sample from the ring buffer and adds to the end of the ring buffer the average of the first two samples, scaled by an energy decay factor of 0.996.
 
-![Ring Buffer](https://www.dropbox.com/s/x8pv6u1jhuxtcld/image006.jpg?dl=1)
+![Ring Buffer](https://www.dropbox.com/s/x8pv6u1jhuxtcld/image006.jpg?raw=1)
 
 #### Why It Works
 
@@ -95,7 +95,7 @@ The `Guitar221` class has a total of 37 notes on the chromatic scale from 110Hz 
 
 This "keyboard" arrangement imitates a piano keyboard, making playing songs a little easier for people used to a piano keyboard. The "white keys" are on the `qwerty` and `zxcv` rows and the "black keys" on the `12345` and `asdf` rows of the keyboard, as in the drawing below.
 
-![Keyboard Layout](https://www.dropbox.com/s/7shc5qz5e1n0qs1/image008.jpg?dl=1)
+![Keyboard Layout](https://www.dropbox.com/s/7shc5qz5e1n0qs1/image008.jpg?raw=1)
 
 You are being provided a skeleton version of the `Guitar221` class that includes this string defined as a constant called `KEYBOARD`.  The i<sup>th</sup> character of the string corresponds to a frequency of _440 × 2<sup>(i - 24)/12</sup>_, so that the character “q” is 110Hz, “i” is 220Hz, “v” is 440Hz, and “ ” (space) is 880Hz.
 
